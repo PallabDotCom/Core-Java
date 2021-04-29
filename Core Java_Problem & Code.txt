@@ -1,0 +1,117 @@
+Inheritance Question:
+
+//Class A 
+{
+int i=10;
+}
+Class B extends A
+{
+int i=20;
+}
+Public class MainClass
+{
+Public static void main /9String[] args)
+{
+A a =new B();
+System.out.print(a.i);
+}
+}
+
+Output : 10
+
+//Print minimum number from an multidimentional array 
+
+int b[][]= {?{2,4,5},{3,4,7},{5,2,1}};
+int min=b[0][0];
+
+for(int i=0;i<3;i++)
+{
+
+for(int j=0;j<3;j++)
+{
+if (b[i][j]<min)
+{
+min=b[i][j]
+}
+}
+}
+System.out.print(min);
+
+
+//Print maximum number from the cloumn where minimum number exist in multidimentional array 
+
+int b[][] = { { 8, 4, 5 }, { 3, 15, 7 }, { 5, 2, 10 } };
+		int min = b[0][0];
+		int mincolumn = 0;
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (b[i][j] < min) {
+					min = b[i][j];
+					mincolumn = j;
+				}
+			}
+		}
+		System.out.println(min);
+		System.out.println(mincolumn);
+		int maxNumber = b[0][mincolumn];
+		for (int k = 0; k < 3; k++) {
+			if (b[k][mincolumn] > maxNumber) {
+				maxNumber = b[k][mincolumn];
+			}
+		}
+		System.out.println(maxNumber);
+
+//Print unique numbers from the list
+int a[] = { 2, 40, 5, 3, 3, 3,4,4, 4, 6 };
+	
+		for (int i = 0; i < a.length; i++)
+		{  
+		    int flag = 0;
+		    for (int j = i + 1; j < a.length; j++)
+		    {
+		        if (a[i] == a[j])
+		        {
+		        	flag = 1;
+		        }
+		    }
+
+		    if (flag == 0)
+		    {
+		        System.out.println(a[i]);
+		    }
+		}
+
+
+//Print unique numbers using arraylist
+int a[] = { 2, 40, 5, 3, 3, 3,4,4, 4, 6 };
+		ArrayList<Integer>ab =new ArrayList<Integer>(); 
+		for(int i=0;i<a.length;i++) 
+			{ 
+			int k=0; 
+			if(!ab.contains(a[i])) 
+				{ ab.add(a[i]); 
+					k++; 
+					for(int j=i+1;j<a.length;j++) 
+						{ 
+						if(a[i]==a[j])
+							{ 
+							k++; 
+							} 
+						} 
+					// System.out.println(a[i]); 
+					//System.out.println(k); if(k==1) 
+					System.out.println(a[i]+"is unique number"); 
+					} 
+			}
+
+//Print using Java stream from array list
+
+		@Test
+		public void ArrayUniqueValue()
+		//Find unique number & sort the array
+		{
+		List<Integer> number=Arrays.asList(3,2,2,3,5,9,7,7,7,10,15);
+		number.stream().distinct().sorted().forEach(s->System.out.println(s));
+			
+		}

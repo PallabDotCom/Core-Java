@@ -1,0 +1,86 @@
+////Instance Variable
+public class StaticVar {
+	String name; 
+	String Street;
+	String city;
+	
+	//Constructor
+	StaticVar (String name,String Street,String city)
+	{
+		//assigning value to class variable
+		this.name=name;
+		this.Street=Street;
+		this.city=city;
+	}
+	public void getaddress()
+	{
+	System.out.println(Street+" "+city);	
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StaticVar obj1=new StaticVar ( "Naga","Duke ST","kitchener");
+		StaticVar obj2=new StaticVar ( "Ranga","Ontario st","kitchener");
+		StaticVar obj3=new StaticVar ( "Shan","King ST","kitchener");
+		obj1.getaddress();
+		obj2.getaddress();
+		obj3.getaddress();
+		
+
+
+	}
+
+}
+
+// Now as the city is common for all the address, we don't want to waste memory. We can use static
+
+
+public class StaticVar {
+	String name; 
+	String Street;
+	static String city ="kitchener"; //Class or static variable
+	static int i=0; //if you are not defining static then output will be 1 1 1
+	/* All the above static variable can be defined under static block
+	
+	 static {
+	 
+		String city ="kitchener"; //Class or static variable
+		 int i=0;
+	}
+	*/
+	//Constructor
+	StaticVar (String name,String Street)
+	{
+		//assigning value to class variable
+		this.name=name;
+		this.Street=Street;
+		i++;
+		System.out.println(i);
+	}
+	public void getaddress()
+	{
+	System.out.println(Street+" "+city);	
+	}
+	
+	//static method
+	public static void getcity()
+	{
+		//only accept static variable
+		System.out.println(city);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StaticVar obj1=new StaticVar ( "Naga","Duke ST");
+		StaticVar obj2=new StaticVar ( "Ranga","Ontario st");
+		StaticVar obj3=new StaticVar ( "Shan","King ST");
+		obj1.getaddress();
+		obj2.getaddress();
+		obj3.getaddress();
+		StaticVar.getcity();//getcity method can be called using class as static
+		StaticVar.i=4; // runtime declaration
+		System.out.println(i);
+		
+	}
+
+}

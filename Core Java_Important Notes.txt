@@ -1,0 +1,169 @@
+//Topics- Class, object, new, void, This, super,try,catch,fianlly, final, public,private,protected,defalut specifiers, packages,import,inheritance,interface,runtime 
+polymorphism,string
+
+
+
+//Println is priniting in new line
+
+// While createing object we mention new which is nothing but momory allocation operator.
+
+//Public Void-> Void denotes return type of that method. We can mention int,string etc.
+
+//Method is a block of code which we call multiple times in code level. This is to optimize lines of code.
+
+//String is a class in JAVA. 2 ways of defining string, 1. string literal which is prebuilt class in java 2. by crating a object of string. The difference is string literal Java will create one object in backend for "hello" string but you can define multiple object of one string in 2nd option. 
+for example string a= "hello"
+string b ="hello"
+string a = new string("hello")
+string b = new string("hello")
+
+//One loop execution is gurantee in do-while loop. That's the basic diffrence with while loop.
+
+//Interface have only methods, not body. //Classes should define and implement methods present in interface and we use implements as a keyword. We can define variables in interface.All the specifiers should be public.. //One class can implement multiple interface. 
+
+// Method without a body call absract method. If there is any method in Class which is abstract then class is treated as abstract class which means Abstract class can have both abstract and non-abstract method. Abstact class declared with abstract keyword in Java.So with Abstract class only Partial Abtraction is achieved where as Interfaces used for 100% abstraction.You can't instantiate object for abstract classes. Child classes are forced to implement abtract methods of parent class. Anthing apart from private is fine in abstract as a specifier. We use extends keyword for inheritence.
+Example: Parent Air craft have defined guidelines for Safety menthod and EngineQualityLevel method but they have an unimplemented method called "Body Color". So when Company will build an aircraft they should extends concrete method however, they have to implement body color method which can be unique.
+
+//Child Class cannot extend multiple parents inheritence. (In Java this is not allowed, Class Z extends X,Y)
+
+//Function Overloading : Using the same method name is called function overloading. However, rule is for both the method, either argument count should be different or argument data type should be different.
+
+//Function Overriding : When you have same method interms of name and arguments in both parent and child class then you parent method (Child class inheritated parent methods) will be Overriden by child method.
+
+//Declare and allocate momory for variable to an array
+int a[]=new int[5]
+a[0]=1;
+a[1]=2;
+Simple literal way int b[]={1,2,3,4,5};
+Have to use for loop to retrive values.
+//Multidimentional Array:
+int a[][]=new int[2][2]
+a[0][0]=1;
+a[0][1]=2;
+a[1][0]=3;
+a[1][1]=4;
+Simple literal way int a[][]={{1,2},{3,4}};
+Have to use 2 for loops to retrieve values.
+//Date //Calendar format :
+Date d=new Date();
+SimpleDateFormat sdf=new SimpleDateFormat("M/d/yyyy hh:mm:ss");
+System.out.println(d.toString());
+System.out.println(sdf.format(d));
+Calendar cal=Calendar.getInstance(); // more utilities in calendar
+System.out.println(cal.get(Calendar.HOUR));
+
+// Constructor is block of code which will be executed whenever an object is created. Once object created constructor will be called automatically.
+Constructor will not return values. That's the only difference with method.
+Name of constructor should be the class name.
+Java compiler will call implicit consrtuctor (which is defined under Java library) if the constractor is not defined.
+Paramitarized constructor : The default constructor don't have parameter but Paramitarized constructor can hold int,string arguments. Based on parameter passed, java will call the right constructor.
+mutiple object can be created for a single class.However, parameter count or type needs to changed as argument.
+
+
+//When same variable/method/constructor is defined for both parent and child class, then to call or print parent variable/method/constructor(athough you are inheriting) we should use super keyword, else it will give preference to local or child variable.
+Example - Super.variable/method , for constructor use only super() and it should be always in first line.
+
+//this keyword refers to current object, object scopre lies in class level. Example- If you have variable same varibale in class level and another in method level, then printing variable from method will return local value. but this.varibale will return class level value.
+Interview question : Sum 2 varibales, local and global. We can solve using this.
+
+//Instance Varibale (local variable) : When you are creating a object or instance then few variables are updating automatically.That's the reason it's called instance variable.
+Static or Class Variable: Not part of object, It's belongs to class. But Sharing between the object will happen. Means if i initiated as 0 but object1 incremented value as 1 then object2 will strat from 1 (not 0). If we remove static then variable will turn to instance variable and no sharing will happen.
+Static method will accept only static variable. Static variable and methods can't be accessed through object. Static can be accessed though class.
+We can define static blocks for all the static variabes as well.
+
+//Writing 'final' keyword infront of a variable means you can change that variable value, it's constant.
+If a class is final then you can't extend it as parent class.
+
+//Packages - set of classes and interfaces. Example - Java.lang is default Java package which comes with java compiler , because of this package we can use public, void, data types etc. Collection interface are available java.util. For exaxmple arraylist class available there.syntax is import package.classname  
+Class A can use Class B directly directly by creating object if both Class A & B belongs to same package. Else you have to import.
+
+//Access Modifier or specifiers : Public Private protected default
+ 
+Private : You can't access method or variable out side the class.
+Default : access method or variable anywhere only in the package (when you imort packages, only your class can be accessible, not methods or variale )
+Protected : access method or variable anywhere only in the package + sub classes only from other packages but other packages class need to inherit.
+Public: access method or variable from any package.
+
+// Try Catch finally -Have to use where java exception can appear. Catch block should follow try block and there can be multiple catch block for one try. finally block will be executed irrespective of exception throws or not. Finally block will be not be executed if you forcefully stop the JVM (Java virtual machine) execution.
+int i=5;
+ int j=0;
+ try
+ {
+	 int k=i/j;
+	 System.out.println(k);
+ }
+ catch(Exception e)
+ {
+	 System.out.println("caught error");
+ }
+finally
+ {
+	 System.out.println("close browser or delete cookies");
+ }
+
+
+//Collection framework : List (ArrayList, LinkedList, Vector), set (HashSet, TreSet,LinkedHashset) & Map ( 
+// Arraylist has dynamic size where array is fixed size. You can acceess or add or remove any index data. That's the basic difference between array and arraylist.Also, arraylist collection have multiple methods which are easy and flexible to use. It can accept values. 
+//Set doesn't accept duplicate values. Also, there is no gurantee that the elements stored in sequential order. It will give random order while execution.
+//Hashmap and HashTable are almost same except slight differences.Hastable is synchronized and threadsafe which means operations will be performed once one thread is completed. When your application don't require any multithreading task then use Hashmap ,else use HashTable.
+//HashMap allows one null key and any number of null values where Hashtable does't allow it.
+//Hashmap object values are iterated using iterator. Hashtable is the only class other then vector which use enumerator to iterate.
+
+// ArrayList example is below.
+ArrayList<String> a=new ArrayList<String>(); 
+		a.add("rahul"); 
+		a.add("java"); 
+		a.add("java"); 
+		System.out.println(a); 
+		a.add(0, "student"); 
+		System.out.println(a); 
+		/*a.remove(1); 
+		 a.remove("java"); 
+		 System.out.println(a);*/ 
+		System.out.println(a.get(2)); 
+		// testing
+		System.out.println(a.contains("java"));
+		System.out.println(a.indexOf("rahul")); 
+		System.out.println(a.isEmpty()); 
+		System.out.println(a.size()); } 
+
+//Hasset example with Iterator- 
+HashSet<String> hs= new HashSet<String>(); 
+		hs.add("USA"); 
+		hs.add("UK"); 
+		hs.add("INDIA"); 
+		hs.add("he"); 
+		hs.add("she"); 
+		hs.add("INDIA"); 
+		System.out.println(hs); 
+		//System.out.println(hs.remove("UK")); 
+		System.out.println(hs.isEmpty()); 
+		System.out.println(hs.size()); 
+		Iterator<String> i=hs.iterator(); 
+		while(i.hasNext()) 
+		{ System.out.println(i.next()); }
+
+//Hashmap example - 
+
+HashMap<Integer,String> hm=new HashMap<Integer,String>(); 
+		hm.put(0, "hello"); 
+		hm.put(1, "Gudbye"); 
+		hm.put(42, "morning"); 
+		hm.put(3, "evening"); 
+		System.out.println(hm.get(42)); 
+		hm.remove(42);
+		System.out.println(hm.get(42)); 
+		Set sn= hm.entrySet(); 
+		Iterator it =sn.iterator(); 
+		//hashtable -pass table set collections  
+		while(it.hasNext()) 
+		{ 
+		//This will give error as key and value is in separate box and control is confused what to extract.
+		//System.out.println(it.next()); 
+		Map.Entry mp=(Map.Entry)it.next();
+		System.out.println(mp.getKey()); 
+		System.out.println(mp.getValue()); 
+		}
+
+
+
