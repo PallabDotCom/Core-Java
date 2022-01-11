@@ -1,5 +1,5 @@
 package coreJava;
-//function overloading
+//function overloading - “Method overloading is a feature of Java in which a class has more than one method of the same name and their parameters are different.” ... When more than one method of the same name is created in a Class, this type of method is called Overloaded Methods.
 //either argument count should be different or
 //argument data type should be different
 public class childlevel extends childClassDemo {
